@@ -1,4 +1,4 @@
-const dayjs = require("dayjs");
+import dayjs from "dayjs";
 
 function generateSlots(days = 2) {
   const slotsPerDay = [
@@ -35,8 +35,8 @@ function scheduleTask(taskName, startTime, endTime) {
   console.log(`Scheduled '${taskName}' from ${startTime} to ${endTime}`);
 }
 
-module.exports = {
+export {
   getFreeSlots,
   scheduleTask,
-  scheduledEvents,
+  scheduledEvents
 };
