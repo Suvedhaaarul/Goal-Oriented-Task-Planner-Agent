@@ -32,7 +32,7 @@ function getFreeSlots(days = 2) {
 
 function scheduleTask(taskName, startTime, endTime) {
   scheduledEvents.push({ taskName, startTime, endTime });
-  console.log(`✅ Scheduled '${taskName}' from ${startTime} to ${endTime}`);
+  console.log(`Scheduled '${taskName}' from ${startTime} to ${endTime}`);
 }
 
 module.exports = {
