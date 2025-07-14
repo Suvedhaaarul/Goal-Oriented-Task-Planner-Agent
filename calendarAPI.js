@@ -1,7 +1,5 @@
-// calendarAPI.js
 const dayjs = require("dayjs");
 
-// Generate dynamic free slots for `n` days starting from today
 function generateSlots(days = 2) {
   const slotsPerDay = [
     { start: "09:00", end: "10:00" },
