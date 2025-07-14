@@ -1,4 +1,3 @@
-// planner.js
 const { getFreeSlots, scheduleTask } = require("./calendarAPI");
 const { OpenAI } = require("openai");
 const dayjs = require("dayjs");
@@ -8,7 +7,6 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 async function plannerAgent(tasks) {
   const scheduledResults = [];
 
-  // Sort by priority desc, then deadline asc
   const sortedTasks = tasks.sort((a, b) => {
     if (b.priority !== a.priority) return b.priority - a.priority;
     return new Date(a.deadline) - new Date(b.deadline);
