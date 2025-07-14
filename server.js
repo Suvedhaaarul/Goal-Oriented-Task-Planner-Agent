@@ -16,8 +16,8 @@ app.post("/schedule-tasks", async (req, res) => {
   }
 
   try {
-    const result = await plannerAgent(tasks); // pass tasks to agent
-    return res.json(result); // return scheduling decisions + reasoning
+    const result = await plannerAgent(tasks);
+    return res.json(result);
   } catch (err) {
     console.error("Error scheduling tasks:", err);
     return res.status(500).json({ error: "Internal error" });
@@ -26,5 +26,5 @@ app.post("/schedule-tasks", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
