@@ -1,10 +1,12 @@
-const { getFreeSlots, scheduleTask } = require("./calendarAPI");
-const { OpenAI } = require("openai");
-const dayjs = require("dayjs");
+import { getFreeSlots, scheduleTask } from "./calendarAPI.js";
+import dayjs from "dayjs";
+import OpenAI from "openai";
+import dotenv from "dotenv";
+dotenv.config();
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-async function plannerAgent(tasks) {
+export async function plannerAgent(tasks) {
   const scheduledResults = [];
 
   const sortedTasks = tasks.sort((a, b) => {
@@ -79,7 +81,7 @@ ${
 Explain the reasoning behind this scheduling decision in 2–3 sentences.
 `;
 
-  const response = await new OpenAI({ apiKey: process.env.OPENAI_API_KEY }).chat.completions.create({
+  const response = await openai.chat.completions.create({
     model: "gpt-4o",
     messages: [{ role: "user", content: prompt }],
     temperature: 0.5,
@@ -87,5 +89,3 @@ Explain the reasoning behind this scheduling decision in 2–3 sentences.
 
   return response.choices[0].message.content.trim();
 }
-
-module.exports = { plannerAgent };
