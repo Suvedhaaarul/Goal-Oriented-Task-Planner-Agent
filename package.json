@@ -1,0 +1,19 @@
+{
+  "name": "task-planner-agent",
+  "version": "1.0.0",
+  "description": "AI-powered task planner with calendar integration",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "node-cron": "^4.2.1",
+    "openai": "^5.9.0"
+  }
+}
