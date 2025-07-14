@@ -1,9 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import dotenv from "dotenv";
+dotenv.config();
 
-const { plannerAgent } = require("./planner");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { plannerAgent } from "./planner.js";
 
 const app = express();
 app.use(cors());
